@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+$primary-color: hsl(217, 19%, 35%);
+$secondary-color: hsl(214, 17%, 51%);
+$tertiary-color: hsl(212, 23%, 69%);
+$quaternery-color: hsl(210, 46%, 95%);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: $tertiary-color;
+  font-family: Manrope, sans-serif;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 60vw;
+  height: 45vh;
+  background-color: $quaternery-color;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .drawer-image {
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .info-container {
+    width: 100%;
+    height: 100%;
+    padding: 3em;
+
+    h1 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      color: $secondary-color;
+      margin-bottom: 1rem;
+    }
+
+    .profile {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .profile-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .profile-picture {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 1rem;
+        }
+
+        .name {
+          h4 {
+            font-size: 15px;
+            color: $primary-color;
+          }
+          h5 {
+            font-size: 1em;
+            color: $secondary-color;
+          }
+        }
+      }
+
+      .share {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: lighten($tertiary-color, 15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+
+        .share-overlay {
+          background-color: $primary-color;
+          color: $tertiary-color;
+          letter-spacing: 4px;
+          border-radius: 10px;
+          padding: 1.2em 2em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: -80px;
+          display: none;
+
+          &::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: $primary-color;
+            position: absolute;
+            bottom: -10px;
+            transform: rotate(45deg);
+          }
+
+          .share-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    width: 90%;
+    height: 65%;
+    flex-direction: column;
+
+    .drawer-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .info-container {
+      padding: 2em;
+      position: relative;
+
+      h1 {
+        font-size: 1.4em;
+      }
+      h3 {
+        font-size: 1em;
+      }
+
+      .profile {
+        .share {
+          position: static;
+          .share-overlay {
+            display: flex;
+            left: 0;
+            bottom: 0;
+            top: auto;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+            padding: 1.7em 3em;
+            
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
